@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:logintestt/login_screen.dart';
+import 'package:intl/intl.dart';
 
 class TermsOfServiceScreen extends StatefulWidget {
   @override
@@ -15,7 +16,9 @@ class _TermsOfServiceScreenState extends State<TermsOfServiceScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Terms of Service'),
+        title: Text(
+          Intl.message('Terms of Service', name: 'termsOfService'),
+        ),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -23,12 +26,20 @@ class _TermsOfServiceScreenState extends State<TermsOfServiceScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Terms of Service Agreement',
+              Intl.message(
+                'Terms of Service Agreement',
+                name: 'termsOfServiceAgreement',
+                desc: 'Title for the terms of service agreement',
+              ),
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 16.0),
             Text(
-              'Terms', // terms of service
+              Intl.message(
+                'Terms', // terms of service
+                name: 'termsText',
+                desc: 'Placeholder for the actual terms text',
+              ),
             ),
             SizedBox(height: 16.0),
             Row(
@@ -41,7 +52,13 @@ class _TermsOfServiceScreenState extends State<TermsOfServiceScreen> {
                     });
                   },
                 ),
-                Text('I accept the Terms of Service'),
+                Text(
+                  Intl.message(
+                    'I accept the Terms of Service',
+                    name: 'acceptTerms',
+                    desc: 'Checkbox label',
+                  ),
+                ),
               ],
             ),
             SizedBox(height: 16.0),
@@ -53,14 +70,26 @@ class _TermsOfServiceScreenState extends State<TermsOfServiceScreen> {
                           _moveToLoginScreen(context);
                         }
                       : null,
-                  child: Text('Continue'),
+                  child: Text(
+                    Intl.message(
+                      'Continue',
+                      name: 'continueButton',
+                      desc: 'Continue button label',
+                    ),
+                  ),
                 ),
                 SizedBox(width: 8.0),
                 ElevatedButton(
                   onPressed: () {
                     _showDeclineConfirmationDialog(context);
                   },
-                  child: Text('Decline'),
+                  child: Text(
+                    Intl.message(
+                      'Decline',
+                      name: 'declineButton',
+                      desc: 'Decline button label',
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -82,22 +111,45 @@ class _TermsOfServiceScreenState extends State<TermsOfServiceScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Confirm Decline'),
-          content:
-              Text('Are you sure you want to decline the Terms of Service?'),
+          title: Text(
+            Intl.message(
+              'Confirm Decline',
+              name: 'confirmDecline',
+              desc: 'Confirmation dialog title',
+            ),
+          ),
+          content: Text(
+            Intl.message(
+              'Are you sure you want to decline the Terms of Service?',
+              name: 'confirmDeclineText',
+              desc: 'Confirmation dialog content',
+            ),
+          ),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop(); // Close the dialog
               },
-              child: Text('Cancel'),
+              child: Text(
+                Intl.message(
+                  'Cancel',
+                  name: 'cancelButton',
+                  desc: 'Cancel button label',
+                ),
+              ),
             ),
             TextButton(
               onPressed: () {
                 _declineAndExit();
                 Navigator.of(context).pop(); // Close the dialog
               },
-              child: Text('Exit'),
+              child: Text(
+                Intl.message(
+                  'Exit',
+                  name: 'exitButton',
+                  desc: 'Exit button label',
+                ),
+              ),
             ),
           ],
         );
