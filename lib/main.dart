@@ -1,6 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'dart:io';
+import 'login_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -58,7 +60,6 @@ class LanguageSelectionScreen extends StatelessWidget {
   }
 
   void _changeLanguage(BuildContext context, Locale locale) {
-    // You can implement language change logic here if needed
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => TermsOfServiceScreen()),
@@ -113,7 +114,7 @@ class _TermsOfServiceScreenState extends State<TermsOfServiceScreen> {
                 ElevatedButton(
                   onPressed: _acceptedTerms
                       ? () {
-                          _moveToSplashScreen(context);
+                          _moveToLoginScreen(context);
                         }
                       : null,
                   child: Text('Continue'),
@@ -133,68 +134,15 @@ class _TermsOfServiceScreenState extends State<TermsOfServiceScreen> {
     );
   }
 
-  void _moveToSplashScreen(BuildContext context) {
+  void _moveToLoginScreen(BuildContext context) {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => SplashScreen()),
+      MaterialPageRoute(builder: (context) => LoginScreen()),
     );
   }
 
   void _declineAndExit() {
     // Optionally show an alert or confirmation dialog before exiting
     exit(0);
-  }
-}
-
-class SplashScreen extends StatefulWidget {
-  @override
-  _SplashScreenState createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    // Simulate a long-running task (e.g., loading data, checking authentication)
-    Future.delayed(Duration(seconds: 2), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => LoginScreen()),
-      );
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SvgPicture.asset(
-              'assets/your_logo.svg', // Replace with your logo image path
-              height: 100.0,
-            ),
-            SizedBox(height: 16.0),
-            CircularProgressIndicator(),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class LoginScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Login Screen'),
-      ),
-      body: Center(
-        child: Text('Your login screen content goes here.'),
-      ),
-    );
   }
 }
