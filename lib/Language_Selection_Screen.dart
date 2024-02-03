@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:logintestt/Terms_of_Service_Screen.dart';
-import 'package:logintestt/main.dart';
 
 class LanguageSelectionScreen extends StatelessWidget {
   @override

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:logintestt/Language_Selection_Screen.dart';
+import 'package:logintestt/otp_screen.dart';
+import 'package:logintestt/otp_send_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -60,7 +63,12 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {
-                // Handle login logic
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      //builder: (context) => LanguageSelectionScreen()),
+                      builder: (context) => OTPSendScreen()),
+                );
               },
               child: const Text('Login'),
             ),

@@ -158,7 +158,6 @@ class _TermsOfServiceScreenState extends State<TermsOfServiceScreen> {
   }
 
   void _declineAndExit() {
-    // Optionally show an alert or confirmation dialog before exiting
     exit(0);
   }
 }
