@@ -1,7 +1,15 @@
-// login_screen.dart
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool rememberMe = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,13 +34,15 @@ class LoginScreen extends StatelessWidget {
             Row(
               children: [
                 Checkbox(
-                  value: false,
+                  value: rememberMe,
                   onChanged: (value) {
-                    // Handle "Remember Me" logic
+                    setState(() {
+                      rememberMe = value ?? false;
+                    });
                   },
                 ),
                 const Text('Remember Me'),
-                const Spacer(), //move forgot password to the right
+                const Spacer(), // move forgot password to the right
                 GestureDetector(
                   onTap: () {
                     // Handle "Forgot Password" logic
@@ -40,9 +50,9 @@ class LoginScreen extends StatelessWidget {
                   child: const Text(
                     'Forgot Password?',
                     style: TextStyle(
-                      color: Colors.blue,
-                      //decoration: TextDecoration.underline,
-                    ),
+                        // color: Colors.blue,
+                        // decoration: TextDecoration.underline,
+                        ),
                   ),
                 ),
               ],
@@ -62,9 +72,9 @@ class LoginScreen extends StatelessWidget {
               child: const Text(
                 'Create New Account',
                 style: TextStyle(
-                  color: Colors.blue,
-                  //decoration: TextDecoration.underline,
-                ),
+                    // color: Colors.blue,
+                    // decoration: TextDecoration.underline,
+                    ),
               ),
             ),
           ],
