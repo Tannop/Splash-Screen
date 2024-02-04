@@ -13,27 +13,46 @@ class _OTPSendScreenState extends State<OTPSendScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Send OTP Confirmation'),
+        //title: const Text('Send OTP Confirmation'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            // Handle back button press
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Enter your phone number to receive the OTP.',
+            const Text(
+              'Your OTP number will be sent to this phone number',
               style: TextStyle(fontSize: 16.0),
+              textAlign: TextAlign.center,
             ),
-            SizedBox(height: 20.0),
-            TextField(
-              controller: _phoneNumberController,
-              keyboardType: TextInputType.phone,
-              decoration: InputDecoration(
-                labelText: 'Phone Number',
-              ),
+            const SizedBox(height: 20.0),
+            const Text(
+              '082-XXX-8998',
+              style: TextStyle(fontSize: 20.0),
+              textAlign: TextAlign.center,
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
+            // TextField(
+            //   controller: _phoneNumberController,
+            //   keyboardType: TextInputType.phone,
+            //   decoration: const InputDecoration(
+            //     labelText: 'Phone Number',
+            //   ),
+            // ),
+            const SizedBox(height: 20.0),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  textStyle: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.bold),
+                  minimumSize: Size(double.infinity, 55),
+                  elevation: 4),
               onPressed: () {
                 // Add logic to send OTP to the provided phone number
                 // For simplicity, let's just print the phone number for now.
@@ -42,7 +61,7 @@ class _OTPSendScreenState extends State<OTPSendScreen> {
                 Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (context) => OTPScreen()));
               },
-              child: Text('Send OTP'),
+              child: const Text('Send OTP'),
             ),
           ],
         ),

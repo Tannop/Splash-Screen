@@ -18,7 +18,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LanguageSelectionScreen(),
+      home: LanguageSelectionScreen(
+        onSelectLanguage: (Locale) {},
+      ),
       supportedLocales: [
         const Locale('en', 'US'),
         const Locale('th', 'TH'),

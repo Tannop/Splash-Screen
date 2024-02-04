@@ -5,6 +5,10 @@ import 'package:logintestt/login_screen.dart';
 import 'package:intl/intl.dart';
 
 class TermsOfServiceScreen extends StatefulWidget {
+  final String? selectedLocale;
+
+  TermsOfServiceScreen({required this.selectedLocale});
+
   @override
   _TermsOfServiceScreenState createState() => _TermsOfServiceScreenState();
 }
@@ -15,11 +19,15 @@ class _TermsOfServiceScreenState extends State<TermsOfServiceScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          Intl.message('Terms of Service', name: 'termsOfService'),
-        ),
-      ),
+      // appBar: AppBar(
+      //   leading: IconButton(
+      //     icon: Icon(Icons.arrow_back),
+      //     onPressed: () {
+      //       Navigator.pop(context);
+      //     },
+      //   ),
+      // ),
+
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
@@ -30,6 +38,7 @@ class _TermsOfServiceScreenState extends State<TermsOfServiceScreen> {
                 'Terms of Service Agreement',
                 name: 'termsOfServiceAgreement',
                 desc: 'Title for the terms of service agreement',
+                locale: widget.selectedLocale,
               ),
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),

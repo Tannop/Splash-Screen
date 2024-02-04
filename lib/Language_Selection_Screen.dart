@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:logintestt/Terms_of_Service_Screen.dart';
+import 'package:logintestt/terms_of_service_screen.dart';
 
 class LanguageSelectionScreen extends StatelessWidget {
+  final void Function(String) onSelectLanguage;
+
+  LanguageSelectionScreen({required this.onSelectLanguage});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,21 +20,22 @@ class LanguageSelectionScreen extends StatelessWidget {
                 'Select Your Language',
                 name: 'selectYourLanguage',
               ),
-              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+              style:
+                  const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {
-                _changeLanguage(context, Locale('en', 'US'));
+                _changeLanguage(context, ('en, US') as String);
               },
-              child: Text('English'),
+              child: const Text('English'),
             ),
-            SizedBox(height: 8.0),
+            const SizedBox(height: 8.0),
             ElevatedButton(
               onPressed: () {
-                _changeLanguage(context, Locale('th', 'TH'));
+                _changeLanguage(context, ('th, TH') as String);
               },
-              child: Text('ไทย'),
+              child: const Text('ไทย'),
             ),
           ],
         ),
@@ -38,11 +43,25 @@ class LanguageSelectionScreen extends StatelessWidget {
     );
   }
 
-  void _changeLanguage(BuildContext context, Locale locale) {
+  void _changeLanguage(BuildContext context, String locale) {
     print("Local language =" + locale.toString());
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => TermsOfServiceScreen()),
+    onSelectLanguage(locale);
+
+    // TermsOfServiceScreen
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
+      ),
+      builder: (BuildContext context) {
+        return Container(
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
+            color: Colors.white, // Adjust the color as needed
+          ),
+          child: TermsOfServiceScreen(selectedLocale: locale),
+        );
+      },
     );
   }
 }
