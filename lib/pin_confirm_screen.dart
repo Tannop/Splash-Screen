@@ -1,38 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:logintestt/pin_confirm_screen.dart';
-// import 'package:pin_input_text_field/pin_input_text_field.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-class SetPinScreen extends StatefulWidget {
+class PinScreenconfirm extends StatefulWidget {
   @override
-  _PinScreenState createState() => _PinScreenState();
+  _SetPinScreenState createState() => _SetPinScreenState();
 }
 
-class _PinScreenState extends State<SetPinScreen> {
+class _SetPinScreenState extends State<PinScreenconfirm> {
   String currentText = "";
-  final TextInputFormatter pininput = FilteringTextInputFormatter.digitsOnly;
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  final TextEditingController textEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          //title: Text('Enter PIN'),
-          ),
+        title: Text('Confirm PIN'),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             PinCodeTextField(
-              keyboardType: TextInputType.number,
               appContext: context,
               length: 6,
-
               obscureText: true,
               obscuringCharacter: '*',
-              //obscuringWidget: const FlutterLogo(size: 24),
+              // obscuringWidget: const FlutterLogo(size: 24),
               blinkWhenObscuring: true,
               animationType: AnimationType.fade,
               validator: (v) {
@@ -60,21 +54,15 @@ class _PinScreenState extends State<SetPinScreen> {
               onPressed: () {
                 // Validate the entered PIN
                 if (currentText.length == 6) {
+                  // PIN chheck logic
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => PinScreenconfirm()),
                   );
-                  // e.g., Navigate to the next screen
-                  // ScaffoldMessenger.of(context).showSnackBar(
-                  //   SnackBar(
-                  //     content: Text("Entered PIN: $currentText"),
-                  //     duration: Duration(seconds: 2),
-                  //   ),
-                  // );
                 } else {
                   // Show an error message if the PIN is not complete
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
+                    SnackBar(
                       content: Text("Please enter a valid 6-digit PIN"),
                       duration: Duration(seconds: 2),
                     ),

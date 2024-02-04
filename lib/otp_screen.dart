@@ -48,7 +48,7 @@ class _OTPScreenState extends State<OTPScreen> {
             const SizedBox(height: 100.0),
             PinInputTextField(
               controller: _otpController,
-              pinLength: 6,
+              pinLength: 5,
               decoration: UnderlineDecoration(
                 colorBuilder: PinListenColorBuilder(
                     Colors.transparent, Colors.transparent),
@@ -56,7 +56,7 @@ class _OTPScreenState extends State<OTPScreen> {
               autoFocus: true,
               textInputAction: TextInputAction.done,
               onSubmit: (pin) {
-                if (_otpController.text.length == 6) {
+                if (_otpController.text.length == 5) {
                   //if else for check OTP logic
                   // After entering the last digit, navigate to the next screen
                   Navigator.pushReplacement(
@@ -67,14 +67,14 @@ class _OTPScreenState extends State<OTPScreen> {
               },
             ),
             SizedBox(height: 20.0),
-            ElevatedButton(
-              onPressed: () {
-                // logic to verify the OTP
-                print('Entered OTP: ${_otpController.text}');
-                // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NextScreen()));
-              },
-              child: Text('Verify OTP'),
-            ),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     // logic to verify the OTP
+            //     print('Entered OTP: ${_otpController.text}');
+            //     // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NextScreen()));
+            //   },
+            //   child: Text('Verify OTP'),
+            // ),
           ],
         ),
       ),
