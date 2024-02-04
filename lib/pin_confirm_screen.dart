@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:logintestt/touch_id_screen.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class PinScreenconfirm extends StatefulWidget {
@@ -24,6 +25,7 @@ class _SetPinScreenState extends State<PinScreenconfirm> {
             PinCodeTextField(
               appContext: context,
               length: 6,
+              keyboardType: TextInputType.number,
               obscureText: true,
               obscuringCharacter: '*',
               // obscuringWidget: const FlutterLogo(size: 24),
@@ -57,7 +59,7 @@ class _SetPinScreenState extends State<PinScreenconfirm> {
                   // PIN chheck logic
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => PinScreenconfirm()),
+                    MaterialPageRoute(builder: (context) => TouchIDScreen()),
                   );
                 } else {
                   // Show an error message if the PIN is not complete
