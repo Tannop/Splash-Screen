@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logintestt/Language_Selection_Screen.dart';
+import 'package:logintestt/forgot_password_screen.dart';
 import 'package:logintestt/otp_screen.dart';
 import 'package:logintestt/otp_send_screen.dart';
 
@@ -48,14 +49,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 const Spacer(), // move forgot password to the right
                 GestureDetector(
                   onTap: () {
-                    // Handle "Forgot Password" logic
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ForgotPasswordScreen(),
+                      ),
+                    );
                   },
                   child: const Text(
                     'Forgot Password?',
                     style: TextStyle(
-                        // color: Colors.blue,
-                        // decoration: TextDecoration.underline,
-                        ),
+                      color: Colors.blue,
+                      decoration: TextDecoration.underline,
+                    ),
                   ),
                 ),
               ],

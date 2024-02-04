@@ -50,8 +50,8 @@ class _OTPSendScreenState extends State<OTPSendScreen> {
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                   textStyle: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.bold),
-                  minimumSize: Size(double.infinity, 55),
+                      fontSize: 16, fontWeight: FontWeight.bold),
+                  minimumSize: Size(double.infinity, 50),
                   elevation: 4),
               onPressed: () {
                 // Add logic to send OTP to the provided phone number
