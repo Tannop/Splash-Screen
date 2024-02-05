@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:logintestt/Language_Selection_Screen.dart';
+// import 'package:logintestt/Language_Selection_Screen.dart';
 import 'package:logintestt/forgot_password_screen.dart';
-import 'package:logintestt/otp_screen.dart';
+// import 'package:logintestt/otp_screen.dart';
 import 'package:logintestt/otp_send_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -26,6 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            const SizedBox(height: 60.0),
             const TextField(
               decoration: InputDecoration(labelText: 'Username'),
             ),
@@ -52,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ForgotPasswordScreen(),
+                        builder: (context) => const ForgotPasswordScreen(),
                       ),
                     );
                   },
@@ -66,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ],
             ),
-            const SizedBox(height: 16.0),
+            const SizedBox(height: 30.0),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -78,18 +79,44 @@ class _LoginScreenState extends State<LoginScreen> {
               },
               child: const Text('Login'),
             ),
-            const SizedBox(height: 16.0),
-            GestureDetector(
-              onTap: () {
-                // Handle "Create New Account" logic
-              },
-              child: const Text(
-                'Create New Account',
-                style: TextStyle(
-                    // color: Colors.blue,
-                    // decoration: TextDecoration.underline,
+            const SizedBox(height: 30.0),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: const Row(
+                children: [
+                  Expanded(
+                    child: Divider(
+                      color: Colors.grey,
+                      height: 1,
                     ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Text(
+                      'No account?',
+                      style: TextStyle(fontSize: 16.0),
+                    ),
+                  ),
+                  Expanded(
+                    child: Divider(
+                      color: Colors.grey,
+                      height: 1,
+                    ),
+                  ),
+                ],
               ),
+            ),
+            const SizedBox(height: 30.0),
+            ElevatedButton(
+              onPressed: () {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //       //builder: (context) => LanguageSelectionScreen()),
+                //       builder: (context) => OTPSendScreen()),
+                // );
+              },
+              child: const Text('Create new account'),
             ),
           ],
         ),

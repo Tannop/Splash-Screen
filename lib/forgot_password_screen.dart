@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:logintestt/password_reset_confirmation_screen.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
+  const ForgotPasswordScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +30,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 16.0),
               ),
             ),
-            const SizedBox(height: 200.0),
+            const SizedBox(height: 140.0),
             Align(
               alignment: Alignment.center,
               child: TextFormField(
