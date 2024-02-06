@@ -16,15 +16,25 @@ class LanguageSelectionScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              Intl.message(
-                'Select Your Language',
-                name: 'selectYourLanguage',
+            const Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                'Welcome',
+                style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
               ),
-              style:
-                  const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 16.0),
+            const SizedBox(height: 10.0),
+            const Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                'Select Your Language',
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 18.0,
+                ),
+              ),
+            ),
+            const SizedBox(height: 30.0),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color.fromARGB(160, 50, 50, 128),

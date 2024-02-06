@@ -1,10 +1,5 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:logintestt/Language_Selection_Screen.dart';
-import 'package:logintestt/Terms_of_Service_Screen.dart';
-import 'login_screen.dart';
 
 void main() {
   runApp(MyApp());
