@@ -1,8 +1,12 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:logintestt/set_pin_screen.dart';
 import 'package:pin_input_text_field/pin_input_text_field.dart';
 
 class OTPScreen extends StatefulWidget {
+  const OTPScreen({super.key});
+
   @override
   _OTPScreenState createState() => _OTPScreenState();
 }

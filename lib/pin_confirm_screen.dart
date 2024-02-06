@@ -1,8 +1,12 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:logintestt/touch_id_screen.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class PinScreenconfirm extends StatefulWidget {
+  const PinScreenconfirm({super.key});
+
   @override
   _SetPinScreenState createState() => _SetPinScreenState();
 }
@@ -51,10 +55,10 @@ class _SetPinScreenState extends State<PinScreenconfirm> {
                     30), // Adjust the radius to make the circles closer
                 fieldHeight: 60, // Adjust the height of the circle
                 fieldWidth: 60, // Adjust the width of the circle
-                activeFillColor: Color.fromARGB(160, 50, 50, 128),
+                activeFillColor: const Color.fromARGB(160, 50, 50, 128),
                 inactiveColor: Colors
                     .grey, // Set the inactive color to make it fill the color inside
-                selectedColor: Color.fromARGB(160, 50, 50, 128),
+                selectedColor: const Color.fromARGB(160, 50, 50, 128),
               ),
               onChanged: (value) {
                 setState(() {

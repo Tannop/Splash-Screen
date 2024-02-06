@@ -167,12 +167,12 @@ class _TouchIDScreenState extends State<TouchIDScreen> {
               margin: const EdgeInsets.symmetric(horizontal: 16.0),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromARGB(160, 50, 50, 128),
+                  backgroundColor: const Color.fromARGB(160, 50, 50, 128),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
                   ),
-                  minimumSize: Size(double.infinity, 50),
-                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                  minimumSize: const Size(double.infinity, 50),
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 ),
                 onPressed: () {
                   // Add touch ID stuff here

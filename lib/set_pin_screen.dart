@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:logintestt/pin_confirm_screen.dart';
 // import 'package:pin_input_text_field/pin_input_text_field.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -52,10 +51,10 @@ class _PinScreenState extends State<SetPinScreen> {
                     30), // Adjust the radius to make the circles closer
                 fieldHeight: 60, // Adjust the height of the circle
                 fieldWidth: 60, // Adjust the width of the circle
-                activeFillColor: Color.fromARGB(160, 50, 50, 128),
+                activeFillColor: const Color.fromARGB(160, 50, 50, 128),
                 inactiveColor: Colors
                     .grey, // Set the inactive color to make it fill the color inside
-                selectedColor: Color.fromARGB(160, 50, 50, 128),
+                selectedColor: const Color.fromARGB(160, 50, 50, 128),
               ),
               onChanged: (value) {
                 setState(() {
@@ -67,7 +66,8 @@ class _PinScreenState extends State<SetPinScreen> {
                   // Navigate to the next screen
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => PinScreenconfirm()),
+                    MaterialPageRoute(
+                        builder: (context) => const PinScreenconfirm()),
                   );
                 }
               },
