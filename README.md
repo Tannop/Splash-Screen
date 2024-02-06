@@ -1,5 +1,9 @@
 # Splash Screen
-
+---------------------------------------------
+Created by Tannop Sangvanloy
+Linkedin: https://www.linkedin.com/in/tannop/
+Email: Tannop_poh@hotmail.com
+---------------------------------------------
 Contents
 - Language selection
   - Thai
