@@ -18,8 +18,8 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login Screen'),
-      ),
+          // title: const Text('Login Screen'),
+          ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -46,7 +46,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     });
                   },
                 ),
-                const Text('Remember Me'),
+                const Text('Remember Me',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      // decoration: TextDecoration.underline,
+                    )),
                 const Spacer(), // move forgot password to the right
                 GestureDetector(
                   onTap: () {
@@ -60,8 +64,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: const Text(
                     'Forgot Password?',
                     style: TextStyle(
-                      color: Colors.blue,
-                      decoration: TextDecoration.underline,
+                      color: Colors.grey,
+                      // decoration: TextDecoration.underline,
                     ),
                   ),
                 ),
@@ -69,6 +73,14 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             const SizedBox(height: 30.0),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromARGB(160, 50, 50, 128),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                minimumSize: Size(double.infinity, 50),
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+              ),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -77,7 +89,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       builder: (context) => OTPSendScreen()),
                 );
               },
-              child: const Text('Login'),
+              child: const Text('Login',
+                  style: TextStyle(
+                    color: Colors.white,
+                    // decoration: TextDecoration.underline,
+                  )),
             ),
             const SizedBox(height: 30.0),
             Container(
@@ -92,10 +108,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Text(
-                      'No account?',
-                      style: TextStyle(fontSize: 16.0),
-                    ),
+                    child: Text('No account?',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          // decoration: TextDecoration.underline,
+                        )),
                   ),
                   Expanded(
                     child: Divider(
@@ -108,6 +125,14 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             const SizedBox(height: 30.0),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                minimumSize: Size(double.infinity, 50),
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+              ),
               onPressed: () {
                 // Navigator.push(
                 //   context,

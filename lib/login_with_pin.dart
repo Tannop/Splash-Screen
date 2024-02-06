@@ -24,11 +24,11 @@ class _Loginpinscreen extends State<PinLogin> {
           children: [
             const SizedBox(height: 20.0),
             const Text(
-              'Set PIN CODE',
+              'Please Enter your PIN ',
               style: TextStyle(
                 fontSize: 20.0,
               ),
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.start,
             ),
             const SizedBox(height: 20.0),
             PinCodeTextField(
@@ -36,7 +36,7 @@ class _Loginpinscreen extends State<PinLogin> {
               appContext: context,
               length: 5,
               obscureText: true,
-              blinkWhenObscuring: true,
+              blinkWhenObscuring: false,
               animationType: AnimationType.fade,
               // validator: (v) {
               //   if (v!.length < 5) {
@@ -47,15 +47,25 @@ class _Loginpinscreen extends State<PinLogin> {
               // },
               pinTheme: PinTheme(
                 shape: PinCodeFieldShape.circle,
-                borderRadius: BorderRadius.circular(
-                    30), // Adjust the radius to make the circles closer
-                fieldHeight: 60, // Adjust the height of the circle
-                fieldWidth: 60, // Adjust the width of the circle
-                activeFillColor: Color.fromARGB(255, 4, 83, 6),
-                inactiveColor: Colors
-                    .grey, // Set the inactive color to make it fill the color inside
-                selectedColor: Color.fromARGB(255, 4, 83, 6),
+                borderRadius: BorderRadius.circular(30),
+                fieldHeight: 60,
+                fieldWidth: 60,
+                activeFillColor: Color.fromARGB(160, 50, 50, 128),
+                // enableActiveFill:
+                //     true, // Set to true to keep the active fill color after it's filled
+                // activeBoxShadow: [
+                //   BoxShadow(
+                //     color: Color.fromARGB(
+                //         160, 50, 50, 128), // Set the color of the shadow
+                //     offset: Offset(0, 2), // Set the offset of the shadow
+                //     blurRadius: 5, // Set the blur radius of the shadow
+                //     spreadRadius: 0, // Set the spread radius of the shadow
+                //   ),
+                // ],
+                inactiveColor: Colors.grey,
+                selectedColor: Color.fromARGB(160, 50, 50, 128),
               ),
+
               onChanged: (value) {
                 setState(() {
                   currentText = value;

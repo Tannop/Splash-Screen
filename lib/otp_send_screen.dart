@@ -36,7 +36,7 @@ class _OTPSendScreenState extends State<OTPSendScreen> {
             const Text(
               '082-XXX-8998',
               style: TextStyle(
-                  fontSize: 20.0, color: Color.fromARGB(255, 4, 83, 6)),
+                  fontSize: 20.0, color: Color.fromARGB(160, 50, 50, 128)),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20.0),
@@ -50,10 +50,13 @@ class _OTPSendScreenState extends State<OTPSendScreen> {
             const SizedBox(height: 50.0),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  textStyle: const TextStyle(
-                      fontSize: 16, fontWeight: FontWeight.bold),
-                  minimumSize: Size(double.infinity, 50),
-                  elevation: 4),
+                backgroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                minimumSize: Size(double.infinity, 50),
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+              ),
               onPressed: () {
                 // Add logic to send OTP to the provided phone number
                 // For simplicity, let's just print the phone number for now.
@@ -68,7 +71,7 @@ class _OTPSendScreenState extends State<OTPSendScreen> {
             const Text(
               'Incase the phone number isn\'t correct, please contact this phone number 02-XXX-XXXX',
               style: TextStyle(
-                fontSize: 16.0,
+                fontSize: 14.0,
                 color: Colors.grey,
               ),
               textAlign: TextAlign.center,

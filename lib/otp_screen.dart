@@ -82,7 +82,7 @@ class _OTPScreenState extends State<OTPScreen> {
               child: Text(
                 'Resend OTP',
                 style: TextStyle(
-                    fontSize: 16.0, color: Color.fromARGB(255, 4, 83, 6)),
+                    fontSize: 16.0, color: Color.fromARGB(160, 50, 50, 128)),
                 textAlign: TextAlign.center,
               ),
             ),

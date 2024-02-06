@@ -141,15 +141,11 @@ class _TouchIDScreenState extends State<TouchIDScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          // title: Text('Touch ID Authentication'),
-          ),
+      appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center, // Center the content
-          crossAxisAlignment:
-              CrossAxisAlignment.start, // Align text to the left
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
               'Touch ID',
@@ -159,7 +155,6 @@ class _TouchIDScreenState extends State<TouchIDScreen> {
               ),
               textAlign: TextAlign.left,
             ),
-            const SizedBox(height: 20.0),
             const Text(
               'Set your Touch ID for quicker access',
               style: TextStyle(
@@ -167,31 +162,51 @@ class _TouchIDScreenState extends State<TouchIDScreen> {
               ),
               textAlign: TextAlign.left,
             ),
-            const Spacer(), // Add spacer to push buttons to the bottom
-            ElevatedButton(
-              onPressed: () {
-                // Handle the first button tap
-              },
-              child: const Text('Button 1'),
-            ),
-            const SizedBox(height: 16.0), // Add some space between buttons
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const PinLogin(),
+            const Spacer(),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color.fromARGB(160, 50, 50, 128),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
                   ),
-                );
-              },
-              child: const Text(
-                'Forgot Password?',
-                style: TextStyle(
-                  color: Colors.blue,
-                  decoration: TextDecoration.underline,
+                  minimumSize: Size(double.infinity, 50),
+                  padding: EdgeInsets.symmetric(horizontal: 16.0),
                 ),
+                onPressed: () {
+                  // Add touch ID stuff here
+                },
+                child: const Text('Set Touch ID',
+                    style: TextStyle(
+                      color: Colors.white,
+                      // decoration: TextDecoration.underline,
+                    )),
               ),
             ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const PinLogin(),
+                      ),
+                    );
+                  },
+                  child: const Text(
+                    'Skip',
+                    style: TextStyle(
+                      color: Colors.grey,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 50),
           ],
         ),
       ),
