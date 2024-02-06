@@ -11,7 +11,8 @@ class LanguageSelectionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -25,17 +26,41 @@ class LanguageSelectionScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16.0),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromARGB(160, 50, 50, 128),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                minimumSize: Size(double.infinity, 50),
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+              ),
               onPressed: () {
                 _changeLanguage(context, ('en, US') as String);
               },
-              child: const Text('English'),
+              child: const Text('English',
+                  style: TextStyle(
+                    color: Colors.white,
+                    // decoration: TextDecoration.underline,
+                  )),
             ),
             const SizedBox(height: 8.0),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromARGB(160, 50, 50, 128),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                minimumSize: Size(double.infinity, 50),
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+              ),
               onPressed: () {
                 _changeLanguage(context, ('th, TH') as String);
               },
-              child: const Text('ไทย'),
+              child: const Text('ไทย',
+                  style: TextStyle(
+                    color: Colors.white,
+                    // decoration: TextDecoration.underline,
+                  )),
             ),
           ],
         ),
