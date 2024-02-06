@@ -14,8 +14,8 @@ class _OTPScreenState extends State<OTPScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('OTP Verification'),
-      ),
+          //title: Text('OTP Verification'),
+          ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -48,7 +48,7 @@ class _OTPScreenState extends State<OTPScreen> {
             const SizedBox(height: 100.0),
             PinInputTextField(
               controller: _otpController,
-              pinLength: 5,
+              pinLength: 6,
               decoration: UnderlineDecoration(
                 colorBuilder: PinListenColorBuilder(
                     Colors.transparent, Colors.transparent),
@@ -56,7 +56,7 @@ class _OTPScreenState extends State<OTPScreen> {
               autoFocus: true,
               textInputAction: TextInputAction.done,
               onSubmit: (pin) {
-                if (_otpController.text.length == 5) {
+                if (_otpController.text.length == 6) {
                   //if else for check OTP logic
                   // After entering the last digit, navigate to the next screen
                   Navigator.pushReplacement(
@@ -66,7 +66,26 @@ class _OTPScreenState extends State<OTPScreen> {
                 }
               },
             ),
-            SizedBox(height: 20.0),
+
+            const SizedBox(height: 60.0),
+            const Align(
+              alignment: Alignment.topCenter,
+              child: Text(
+                'Didn\' recieve the OTP?',
+                style: TextStyle(fontSize: 16.0),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            const SizedBox(height: 20.0),
+            const Align(
+              alignment: Alignment.topCenter,
+              child: Text(
+                'Resend OTP',
+                style: TextStyle(
+                    fontSize: 16.0, color: Color.fromARGB(255, 4, 83, 6)),
+                textAlign: TextAlign.center,
+              ),
+            ),
             // ElevatedButton(
             //   onPressed: () {
             //     // logic to verify the OTP

@@ -35,7 +35,8 @@ class _OTPSendScreenState extends State<OTPSendScreen> {
             const SizedBox(height: 20.0),
             const Text(
               '082-XXX-8998',
-              style: TextStyle(fontSize: 20.0),
+              style: TextStyle(
+                  fontSize: 20.0, color: Color.fromARGB(255, 4, 83, 6)),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20.0),
@@ -46,7 +47,7 @@ class _OTPSendScreenState extends State<OTPSendScreen> {
             //     labelText: 'Phone Number',
             //   ),
             // ),
-            const SizedBox(height: 20.0),
+            const SizedBox(height: 50.0),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                   textStyle: const TextStyle(
@@ -62,6 +63,15 @@ class _OTPSendScreenState extends State<OTPSendScreen> {
                     MaterialPageRoute(builder: (context) => OTPScreen()));
               },
               child: const Text('Send OTP'),
+            ),
+            const SizedBox(height: 30.0),
+            const Text(
+              'Incase the phone number isn\'t correct, please contact this phone number 02-XXX-XXXX',
+              style: TextStyle(
+                fontSize: 16.0,
+                color: Colors.grey,
+              ),
+              textAlign: TextAlign.center,
             ),
           ],
         ),

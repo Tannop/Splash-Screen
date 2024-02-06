@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:logintestt/touch_id_screen.dart';
+import 'package:flutter/services.dart';
+// import 'package:pin_input_text_field/pin_input_text_field.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-class PinScreenconfirm extends StatefulWidget {
+class PinLogin extends StatefulWidget {
+  const PinLogin({super.key});
+
   @override
-  _SetPinScreenState createState() => _SetPinScreenState();
+  _Loginpinscreen createState() => _Loginpinscreen();
 }
 
-class _SetPinScreenState extends State<PinScreenconfirm> {
+class _Loginpinscreen extends State<PinLogin> {
   String currentText = "";
-  final TextEditingController textEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          // title: Text('Confirm PIN'),
-          ),
+      appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -24,7 +24,7 @@ class _SetPinScreenState extends State<PinScreenconfirm> {
           children: [
             const SizedBox(height: 20.0),
             const Text(
-              'Confirm PIN CODE',
+              'Set PIN CODE',
               style: TextStyle(
                 fontSize: 20.0,
               ),
@@ -64,16 +64,33 @@ class _SetPinScreenState extends State<PinScreenconfirm> {
                 // Check if the entered PIN has reached the desired length
                 if (value.length == 5) {
                   // Navigate to the next screen
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => TouchIDScreen()),
-                  );
+                  //add next screen
                 }
               },
               keyboardAppearance: Theme.of(context).brightness,
               enablePinAutofill: false,
             ),
             const SizedBox(height: 20),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     // Validate the entered PIN
+            //     if (currentText.length == 6) {
+            //       Navigator.pushReplacement(
+            //         context,
+            //         MaterialPageRoute(builder: (context) => PinScreenconfirm()),
+            //       );
+            //     } else {
+            //       // Show an error message if the PIN is not complete
+            //       ScaffoldMessenger.of(context).showSnackBar(
+            //         const SnackBar(
+            //           content: Text("Please enter a valid 6-digit PIN"),
+            //           duration: Duration(seconds: 2),
+            //         ),
+            //       );
+            //     }
+            //   },
+            //   child: Text('Submit'),
+            // ),
           ],
         ),
       ),
